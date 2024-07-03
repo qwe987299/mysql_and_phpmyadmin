@@ -1,0 +1,24 @@
+services:
+
+    db:
+        container_name: mysql
+        image: mysql:latest
+        restart: always
+        volumes:
+            - ./mysql:/var/lib/mysql
+        environment:
+            TZ: Asia/Taipei
+            MYSQL_ROOT_PASSWORD: Password1234
+        ports:
+            - "3306:3306"
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --innodb-buffer-pool-size=10240M --max-connections=1000 --local-infile=ON --innodb-log-file-size=2G --innodb_flush_log_at_trx_commit=2
+
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: phpmyadmin
+        restart: always
+        ports:
+            - "8080:80"
+        environment:
+            - PMA_HOST=db
+            - UPLOAD_LIMIT=10G
