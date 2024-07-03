@@ -1,4 +1,4 @@
-# Docker Compose 快速安裝 MySQL & phpmyadmin 環境包
+# Docker Compose 快速安裝 MySQL & phpMyAdmin 環境包
 
 首次安裝請依照以下步驟操作：
 
